@@ -21,14 +21,14 @@ function vote(fighter) {
 
     // Increment vote count
     votes[fighter]++;
-    
+
     // Save vote to localStorage
     localStorage.setItem('ufcVotes', JSON.stringify(votes));
     localStorage.setItem('hasVoted', 'true');
-    
+
     // Update the display
     updateVoteDisplay();
-    
+
     // Show thank you message
     alert('Thank you for voting!');
 }
@@ -37,4 +37,7 @@ function vote(fighter) {
 function updateVoteDisplay() {
     document.getElementById('afan-votes').textContent = `${votes.afan} votes`;
     document.getElementById('vishwas-votes').textContent = `${votes.vishwas} votes`;
-} 
+}
+
+// Ensure initial display on page load
+updateVoteDisplay();
