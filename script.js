@@ -41,3 +41,16 @@ function updateVoteDisplay() {
 
 // Ensure initial display on page load
 updateVoteDisplay();
+function createSparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = Math.random() * 100 + 'vw';
+    sparkle.style.top = Math.random() * 100 + 'vh';
+    sparkle.style.setProperty('--x', (Math.random() * 200 - 100) + 'px');
+    sparkle.style.setProperty('--y', (Math.random() * 200 - 100) + 'px');
+    document.querySelector('.fireworks-container').appendChild(sparkle);
+    
+    setTimeout(() => sparkle.remove(), 2000);
+}
+
+setInterval(createSparkle, 100);
