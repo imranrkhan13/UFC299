@@ -1,14 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+:root {
+    --primary: #4a148c;
+    --secondary: #6a1b9a;
+    --accent: #9c27b0;
+    --text-primary: #f3e5f5;
+    --text-secondary: #ce93d8;
+    --highlight: #aa00ff;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    background: black;
+    color: var(--text-primary);
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 .container {
@@ -16,23 +27,44 @@ body {
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
-    color: #f8f8f8;
+    color: var(--text-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .match-image {
     margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+
 }
 
 .match-image img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.match-image img:hover {
+    transform: scale(1.02);
 }
 
 .voting-section {
@@ -40,61 +72,321 @@ h1 {
     justify-content: space-around;
     align-items: center;
     margin: 2rem 0;
-    padding: 2rem;
-    background-color: #2a2a2a;
-    border-radius: 15px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .fighter {
     flex: 1;
-    padding: 1rem;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.fighter:hover {
+    transform: translateY(-5px);
 }
 
 .vs {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
-    color: #ffd700;
+    color: #FAFFC5;
+    text-shadow: 0 0 10px rgba(170, 0, 255, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #ffd700;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #FAFFC5;
+    transition: color 0.3s ease;
+}
+
+h2:hover {
+    color: #C5D3E8;
 }
 
 .votes {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #cccccc;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: #FAFFC5;
+    animation: countUp 2s ease-out;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .vote-btn {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    background-color: #dc3545;
-    color: white;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.2rem;
+    background: #FAFFC5;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgb(250, 255, 197);
 }
 
 .vote-btn:hover {
-    background-color: #c82333;
+    color: #FAFFC5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(197, 211, 232);
+    background:  rgba(255, 255, 255, 0.1);
+}
+
+.vote-btn:active {
+    transform: translateY(1px);
 }
 
 .match-info {
-    margin-top: 2rem;
-    color: #cccccc;
+    margin-top: 3rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    animation: fadeIn 1.5s ease-in;
 }
 
 @media (max-width: 768px) {
     .voting-section {
         flex-direction: column;
-        gap: 2rem;
+        gap: 3rem;
     }
     
     .vs {
-        margin: 1rem 0;
+        margin: 1.5rem 0;
+        font-size: 2.5rem;
     }
-} 
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Add smooth scrolling to the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Add loading animation */
+@keyframes loadIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.container > * {
+    color: #F6F4F0;
+    animation: loadIn 0.5s ease-out forwards;
+}
+/* Add fireworks container */
+.fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Firework particles */
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: explode 1.5s ease-out infinite;
+}
+
+/* Create multiple firework elements with different colors and timings */
+.firework:nth-child(1) { 
+    background: #ff0; 
+    left: 20%; 
+    animation-delay: 0s;
+}
+.firework:nth-child(2) { 
+    background: #f0f; 
+    left: 40%; 
+    animation-delay: 0.3s;
+}
+.firework:nth-child(3) { 
+    background: #0ff; 
+    left: 60%; 
+    animation-delay: 0.6s;
+}
+.firework:nth-child(4) { 
+    background: #f00; 
+    left: 80%; 
+    animation-delay: 0.9s;
+}
+
+/* Firework explosion animation */
+@keyframes explode {
+    0% {
+        transform: translateY(100vh) scale(0.1);
+        opacity: 1;
+    }
+    25% {
+        transform: translateY(50vh) scale(0.1);
+    }
+    50% {
+        transform: translateY(40vh) scale(0.1);
+    }
+    60% {
+        transform: translateY(30vh) scale(1);
+    }
+    100% {
+        transform: translateY(20vh) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Sparkles that emerge from firework explosion */
+.firework::before,
+.firework::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    animation: sparkle 1.5s ease-out infinite;
+}
+
+/* Multiple sparkle trails */
+.firework::before {
+    transform: rotate(45deg);
+}
+
+.firework::after {
+    transform: rotate(-45deg);
+}
+
+@keyframes sparkle {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--x, 20px), var(--y, 20px)) scale(0);
+        opacity: 0;
+    }
+}
+
+/* Add more randomized sparkles */
+.sparkle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    animation: floatSparkle 2s linear infinite;
+}
+
+@keyframes floatSparkle {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100px, -100px) rotate(360deg);
+        opacity: 0;
+    }
+}.video-background {
+    display: none; /* Hidden by default for mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+.video-background video {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    /* Ensure no white space around edges */
+    margin: 0;
+    padding: 0;
+    inset: 0;
+    /* If video ratio doesn't match screen, this ensures coverage */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Video overlay for better content visibility */
+.video-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* Fireworks styles (for mobile) */
+.fireworks-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+@media screen and (min-width: 1024px) {
+    .video-background,
+    .video-overlay {
+        display: block; /* Show video on desktop */
+    }
+    
+    .fireworks-container {
+        display: none; /* Hide fireworks on desktop */
+    }
+    
+    body {
+        background: none; /* Remove gradient background on desktop */
+    }
+    .match-image img{
+        opacity: 0.4;
+    }
+}
+
+/* Media query for mobile */
+@media screen and (max-width: 1023px) {
+    body {
+        background: black; /* Keep gradient on mobile */
+    }
+    
+    .fireworks-container {
+        display: block; /* Show fireworks on mobile */
+    }
+}
