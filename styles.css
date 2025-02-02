@@ -376,7 +376,7 @@ html {
         background: none; /* Remove gradient background on desktop */
     }
     .match-image img{
-        opacity: 0.4;
+        opacity: 0.7;
     }
 }
 
