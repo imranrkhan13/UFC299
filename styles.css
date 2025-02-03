@@ -390,3 +390,11 @@ html {
         display: block; /* Show fireworks on mobile */
     }
 }
+.fighter-img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+}
+
